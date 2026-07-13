@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CineFlow - Stream free, high-quality cinematic creations. Explore action, sci-fi, and animation with a custom built-in premium media player.">
+    <title>CineFlow | Stream Free Premium Movies</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Premium Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo" id="logo-btn">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="6,3 20,12 6,21" fill="url(#logo-grad)"/>
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f2fe" />
+                            <stop offset="100%" stop-color="#4facfe" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Cine<span>Flow</span></span>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active" id="nav-home">Home</a>
+                <a href="#" class="nav-link" id="nav-watchlist">
+                    My Watchlist
+                    <span class="watchlist-count" id="watchlist-badge">0</span>
+                </a>
+                <a href="#" class="nav-link" id="nav-about">About</a>
+                <a href="#" class="nav-upload-btn" id="nav-upload">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>Upload Video</span>
+                </a>
+            </nav>
+
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="search-input" placeholder="Search movies, genres..." autocomplete="off">
+                <button id="search-clear" class="search-clear-btn" aria-label="Clear search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Featured Movie -->
+        <section class="hero" id="hero-section">
+            <div class="hero-bg" id="hero-bg-img"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content-wrapper">
+                <div class="hero-content">
+                    <div class="badge-row">
+                        <span class="trending-badge">FEATURED</span>
+                        <span class="hero-genre" id="hero-genre-badge">Sci-Fi & Fantasy</span>
+                    </div>
+                    <h1 class="hero-title" id="hero-title">Tears of Steel</h1>
+                    <p class="hero-description" id="hero-desc">
+                        A group of warriors and scientists gather at the Oude Kerk in Amsterdam to stage a crucial event from the past in a desperate attempt to rescue the world from destructive robots.
+                    </p>
+                    <div class="hero-meta">
+                        <div class="meta-item rating">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/>
+                            </svg>
+                            <span id="hero-rating">8.2</span>
+                        </div>
+                        <span class="meta-sep">•</span>
+                        <span class="meta-item" id="hero-year">2012</span>
+                        <span class="meta-sep">•</span>
+                        <span class="meta-item" id="hero-duration">12 mins</span>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" id="hero-play-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="8,5 19,12 8,19" />
+                            </svg>
+                            Watch Now
+                        </button>
+                        <button class="btn btn-secondary" id="hero-watchlist-btn">
+                            <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <span>Add to Watchlist</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category & Grid Section -->
+        <section class="catalog-section">
+            <div class="catalog-header">
+                <h2 class="section-title" id="catalog-title">Explore Movies</h2>
+                
+                <!-- Category Tabs -->
+                <div class="category-tabs" id="genre-filters">
+                    <button class="tab-btn active" data-genre="all">All Movies</button>
+                    <button class="tab-btn" data-genre="Sci-Fi">Sci-Fi</button>
+                    <button class="tab-btn" data-genre="Fantasy">Fantasy</button>
+                    <button class="tab-btn" data-genre="Animation">Animation</button>
+                    <button class="tab-btn" data-genre="Action">Action</button>
+                    <button class="tab-btn" data-genre="Drama">Drama</button>
+                </div>
+            </div>
+
+            <!-- Movies Grid -->
+            <div class="movies-grid" id="movies-grid">
+                <!-- Dynamically injected cards -->
+            </div>
+
+            <!-- Empty State Placeholder -->
+            <div class="empty-state hidden" id="empty-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                <h3>No movies found</h3>
+                <p>Try searching for something else or clearing your search.</p>
+                <button class="btn btn-secondary" id="empty-reset-btn">Reset Filters</button>
+            </div>
+        </section>
+
+        <!-- About / Projects Section -->
+        <section class="about-section hidden" id="about-section">
+            <div class="about-container">
+                <div class="about-grid">
+                    <div class="about-info-panel">
+                        <span class="about-accent">PROJECT HIGHLIGHT</span>
+                        <h2 class="about-title">About CineFlow</h2>
+                        <p class="about-text">
+                            CineFlow is a next-generation open-source movie catalog and custom media streaming platform built entirely with native web technologies. Our mission is to showcase high-quality, open-licensed content using advanced user interface designs, dynamic filtering, and a state-of-the-art cinematic player experience.
+                        </p>
+                        
+                        <div class="projects-meta">
+                            <h3 class="projects-subtitle">Featured Tech Stack</h3>
+                            <ul class="tech-list">
+                                <li><strong>HTML5 Semantic Markup</strong>: Accessible and SEO-friendly document layout.</li>
+                                <li><strong>Vanilla CSS3 Custom Design</strong>: Custom variables, dark mode styling, and high-performance hardware-accelerated animations.</li>
+                                <li><strong>Modern Native JavaScript</strong>: Modular controllers, real-time filtering algorithms, and interactive HTML5 Video API bindings.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="about-video-panel">
+                        <div class="about-video-wrapper">
+                            <!-- Responsive autoplay muted loop video -->
+                            <video src="assets/myvideo.mp4" autoplay muted loop playsinline class="responsive-about-video"></video>
+                            <div class="video-overlay-glow"></div>
+                        </div>
+                        <p class="video-caption">Demonstration reel: CineFlow Showcase Video</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Video Section -->
+        <section class="upload-section hidden" id="upload-section">
+            <div class="upload-container">
+                <div class="upload-header-row">
+                    <h2 class="section-title">Upload Video</h2>
+                    <p class="section-subtitle">Share your creations with the world. Supports MP4, MOV, and WebM.</p>
+                </div>
+                
+                <div class="upload-grid">
+                    <!-- Left Column: Dropzone & Preview -->
+                    <div class="upload-left-side">
+                        <!-- Dropzone card -->
+                        <div class="dropzone" id="dropzone">
+                            <input type="file" id="video-file-input" accept="video/mp4,video/quicktime,video/webm" class="hidden">
+                            <div class="dropzone-content" id="dropzone-content">
+                                <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <h3>Drag & Drop Video File</h3>
+                                <p>or click to browse computer files</p>
+                                <span class="file-limits">Supports MP4, MOV, and WebM</span>
+                            </div>
+                        </div>
+
+                        <!-- Preview Card -->
+                        <div class="preview-card hidden" id="preview-card">
+                            <div class="preview-header">
+                                <span class="preview-tag">VIDEO PREVIEW</span>
+                                <button type="button" class="preview-remove-btn" id="preview-remove" aria-label="Remove video">
+                                    Remove File
+                                </button>
+                            </div>
+                            <div class="preview-player-wrapper">
+                                <video id="preview-video-player" controls playsinline></video>
+                            </div>
+                            <div class="preview-file-details">
+                                <span class="file-name-label" id="preview-file-name">filename.mp4</span>
+                                <span class="file-size-label" id="preview-file-size">0.0 MB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details Form -->
+                    <div class="upload-right-side">
+                        <form class="upload-form" id="upload-form" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="upload-title">Video Title *</label>
+                                <input type="text" id="upload-title" placeholder="Enter a catchy title for your video" required autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="upload-genre">Category / Genre *</label>
+                                <select id="upload-genre" required>
+                                    <option value="" disabled selected>Select a category</option>
+                                    <option value="Sci-Fi">Sci-Fi</option>
+                                    <option value="Fantasy">Fantasy</option>
+                                    <option value="Animation">Animation</option>
+                                    <option value="Action">Action</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Comedy">Comedy</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="upload-desc">Description *</label>
+                                <textarea id="upload-desc" rows="5" placeholder="Tell viewers what your video is about" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="upload-cast">Cast / Creators</label>
+                                <input type="text" id="upload-cast" placeholder="Actors, directors, or creators (comma separated)" autocomplete="off">
+                            </div>
+
+                            <!-- Publish Button -->
+                            <button type="submit" class="btn btn-primary btn-full publish-btn" id="publish-btn" disabled>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                                Publish Video
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Simulating Upload Progress -->
+                <div class="upload-progress-overlay hidden" id="upload-progress-overlay">
+                    <div class="upload-progress-card">
+                        <div class="progress-spinner">
+                            <svg class="spinner-svg" viewBox="0 0 50 50">
+                                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                            </svg>
+                        </div>
+                        <h3 id="progress-status-title">Processing Video...</h3>
+                        <p id="progress-status-desc">Optimizing playback compatibility and saving locally.</p>
+                        <div class="bar-container">
+                            <div class="bar-fill" id="progress-bar-fill"></div>
+                        </div>
+                        <span class="progress-percent" id="progress-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="6,3 20,12 6,21" fill="url(#footer-logo-grad)"/>
+                        <defs>
+                            <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f2fe" />
+                                <stop offset="100%" stop-color="#4facfe" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>Cine<span>Flow</span></span>
+                </div>
+                <p>Discover and watch free high-quality cinema from open creators worldwide. Powered by open source standards.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <a href="#" class="genre-footer-link" data-genre="Sci-Fi">Sci-Fi</a>
+                <a href="#" class="genre-footer-link" data-genre="Animation">Animation</a>
+                <a href="#" class="genre-footer-link" data-genre="Fantasy">Fantasy</a>
+            </div>
+            <div class="footer-links">
+                <h4>Community</h4>
+                <a href="https://durian.blender.org" target="_blank" rel="noopener">Sintel Film</a>
+                <a href="https://mango.blender.org" target="_blank" rel="noopener">Tears of Steel</a>
+                <a href="https://peach.blender.org" target="_blank" rel="noopener">Big Buck Bunny</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CineFlow. Streaming materials are creative commons / open source works hosted for demo purposes.</p>
+        </div>
+    </footer>
+
+    <!-- Details and Custom Video Player Modal -->
+    <div class="modal-overlay hidden" id="movie-modal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="modal-content">
+                <!-- Left Details Panel -->
+                <div class="modal-details-side">
+                    <div class="modal-poster-wrap">
+                        <img id="modal-poster" src="" alt="Movie Poster">
+                    </div>
+                    <div class="modal-info">
+                        <h2 class="modal-title" id="modal-title">Movie Title</h2>
+                        <div class="modal-meta-row">
+                            <span class="modal-tag" id="modal-genre">Genre</span>
+                            <span class="modal-tag" id="modal-year">2026</span>
+                            <span class="modal-tag" id="modal-duration">0 min</span>
+                            <div class="modal-rating">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/>
+                                </svg>
+                                <span id="modal-rating-val">0.0</span>
+                            </div>
+                        </div>
+                        <p class="modal-synopsis" id="modal-synopsis">Movie synopsis goes here...</p>
+                        
+                        <div class="modal-cast-section">
+                            <h4>Cast</h4>
+                            <p id="modal-cast">Actor 1, Actor 2, Actor 3</p>
+                        </div>
+                        
+                        <button class="btn btn-secondary btn-full" id="modal-watchlist-btn">
+                            <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <span>Add to Watchlist</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Video Player Panel -->
+                <div class="modal-player-side">
+                    <div class="custom-player-container" id="player-container">
+                        <!-- Standard HTML5 Video element -->
+                        <video id="main-video-player" src="" playsinline></video>
+                        
+                        <!-- Custom Player UI Controls Overlay -->
+                        <div class="player-controls-overlay">
+                            <!-- Big Play/Pause Center Indicator -->
+                            <div class="center-play-trigger" id="center-play-trigger">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="play-svg">
+                                    <polygon points="6,4 20,12 6,20" />
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="pause-svg hidden">
+                                    <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                                    <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+                                </svg>
+                            </div>
+                            
+                            <!-- Bottom control bar -->
+                            <div class="control-bar">
+                                <!-- Progress Track -->
+                                <div class="progress-container" id="progress-container">
+                                    <div class="progress-bar-bg"></div>
+                                    <div class="progress-filled" id="progress-filled"></div>
+                                    <div class="progress-handle" id="progress-handle"></div>
+                                </div>
+                                
+                                <div class="controls-row">
+                                    <div class="controls-left">
+                                        <!-- Play/Pause Button -->
+                                        <button class="player-btn" id="player-play" aria-label="Play/Pause">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+                                                <polygon points="6,4 20,12 6,20" />
+                                            </svg>
+                                            <svg viewBox="0 0 24 24" fill="currentColor" class="pause-icon hidden">
+                                                <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                                                <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+                                            </svg>
+                                        </button>
+                                        
+                                        <!-- Volume controls -->
+                                        <div class="volume-container">
+                                            <button class="player-btn" id="player-mute" aria-label="Mute/Unmute">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="vol-high">
+                                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                                </svg>
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="vol-mute hidden">
+                                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                                                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                                                </svg>
+                                            </button>
+                                            <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume slider">
+                                        </div>
+
+                                        <!-- Time tracker -->
+                                        <span class="time-display">
+                                            <span id="current-time">00:00</span> / <span id="duration-time">00:00</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="controls-right">
+                                        <!-- Speed/Rate selector -->
+                                        <div class="speed-selector">
+                                            <button class="player-btn speed-btn" id="speed-btn">1.0x</button>
+                                            <div class="speed-menu hidden" id="speed-menu">
+                                                <div data-speed="0.5">0.5x</div>
+                                                <div class="active" data-speed="1">1.0x</div>
+                                                <div data-speed="1.5">1.5x</div>
+                                                <div data-speed="2">2.0x</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Fullscreen Button -->
+                                        <button class="player-btn" id="player-fullscreen" aria-label="Toggle Fullscreen">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JavaScript App -->
+    <script src="app.js"></script>
+</body>
+</html>
